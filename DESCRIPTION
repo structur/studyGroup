@@ -1,0 +1,22 @@
+Package: studyGroup
+Version: 0.0.0.9000
+Title: Website for UofTCoders
+Description: Content for studyGroup website.
+Encoding: UTF-8
+LazyData: true
+ByteCompile: true
+Imports: 
+    yaml,
+    here,
+    purrr,
+    dplyr,
+    stringr,
+    lubridate,
+    glue,
+    fs,
+    gh,
+    usethis,
+    assertr,
+    readr
+URL: https://github.com/SaraMati/studyGroup
+BugReports: https://github.com/SaraMati/studyGroup/issues

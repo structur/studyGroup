@@ -1,0 +1,71 @@
+- name: Ahmed Hasan
+  position: President
+  degree: PhD, Biology
+  github: aays
+  interests:
+    - R
+    - Python
+    - LaTeX
+
+- name: Lina Tran
+  position: Special Events Coordinator
+  degree: PhD, Physiology
+  github: linamnt
+  interests:
+    - Python
+    - R
+
+- name: Frances Wong
+  position: Marketing and Social Media Coordinator
+  degree: PhD, Physiology
+  github: FrancesWong
+  interests:
+    - R
+
+- name: James Santangelo
+  position: RQM Course Coordinator
+  degree: PhD, Biology
+  github: James-S-Santangelo
+  interests:
+    - R
+
+- name: Sara Mahallati
+  position: Graduate Course Coordinator
+  degree: PhD, Biomedical Engineering
+  github: SaraMati
+  interests:
+    - MATLAB
+    - LaTeX
+    - Python
+
+- name: Margot Lautens
+  position: Admin, Peer Mentorship Coordinator
+  degree: PhD, Molecular Genetics
+  github: margot-l
+  interests:
+    - R
+    - Python
+
+- name: Elliott Sales de Andrade
+  position: Technical Admin
+  degree: PhD, Physics
+  github: QuLogic
+  interests:
+    - Fortran
+    - Python
+    - Visualization
+
+- name: Amin Banihashemi
+  position: Treasurer
+  degree: PhD, IMS
+  github: ab2347
+  interests:
+    - Python
+    - R
+    
+- name: Haidy Giratallah
+  position: Peer Mentorship Coordinator
+  degree: PhD, Pharmacology
+  github: HaidyGiratallah
+  interests:
+    - Python
