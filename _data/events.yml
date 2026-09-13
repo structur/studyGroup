@@ -1,0 +1,104 @@
+  # Key is the part of the filename in _posts/
+- key: py-data-vis
+  # Title of event that will show up as the GH Issue title
+  title: "Data visualization in Python"
+  # Explanation of event as a paragraph form
+  description: "An introduction to exploring and visualizing your data in Python."
+  # Date of the event in YYYY-MM-DD format
+  date: 2023-02-01
+  # Start and end time for event in 24 hour HH:MM format
+  start_time: "18:00"
+  end_time: "19:00"
+  # Where the event will take place
+  location: Discord
+  # The URL for the location
+  location_url: "https://github.com/UofTCoders/Events/issues/328"
+  # Packages to install, a space separating each package
+  # (e.g. "dplyr tidyr" or "Pandas>=0.21 Seaborn")
+  packages: ""
+  youtube_link: ""
+  skill_level: Beginner
+  # Beginner Intermediate Advanced
+  # R or Python
+  program_language: Python
+  # Only one label that will be put into the GitHub Issue
+  gh_labels: code-along
+
+  # Key is the part of the filename in _posts/
+- key: intro-bash
+  # Title of event that will show up as the GH Issue title
+  title: "Introduction to Bash"
+  # Explanation of event as a paragraph form
+  description: "A brief overview of working at the command line in Unix environments."
+  # Date of the event in YYYY-MM-DD format
+  date: 2023-02-15
+  # Start and end time for event in 24 hour HH:MM format
+  start_time: "18:00"
+  end_time: "19:00"
+  # Where the event will take place
+  location: Discord
+  # The URL for the location
+  location_url: "https://github.com/UofTCoders/Events/issues/329"
+  # Packages to install, a space separating each package
+  # (e.g. "dplyr tidyr" or "Pandas>=0.21 Seaborn")
+  packages: ""
+  youtube_link: ""
+  skill_level: Beginner
+  # Beginner Intermediate Advanced
+  # R or Python
+  program_language: Bash
+  # Only one label that will be put into the GitHub Issue
+  gh_labels: code-along
+
+  # Key is the part of the filename in _posts/
+- key: python-numpy-pandas
+  # Title of event that will show up as the GH Issue title
+  title: "Python: Data processing with numpy and pandas"
+  # Explanation of event as a paragraph form
+  description: "A code-along demonstrating two popular libraries for data processing in Python."
+  # Date of the event in YYYY-MM-DD format
+  date: 2023-03-01
+  # Start and end time for event in 24 hour HH:MM format
+  start_time: "18:00"
+  end_time: "19:00"
+  # Where the event will take place
+  location: TBA in-person + Discord
+  # The URL for the location
+  location_url: "https://github.com/UofTCoders/Events/issues/330"
+  # Packages to install, a space separating each package
+  # (e.g. "dplyr tidyr" or "Pandas>=0.21 Seaborn")
+  packages: ""
+  youtube_link: ""
+  skill_level: Intermediate
+  # Beginner Intermediate Advanced
+  # R or Python
+  program_language: Python
+  # Only one label that will be put into the GitHub Issue
+  gh_labels: code-along
+
+  # Key is the part of the filename in _posts/
+- key: python-intro-ml
+  # Title of event that will show up as the GH Issue title
+  title: "Python: Intro to machine learning"
+  # Explanation of event as a paragraph form
+  description: "A tutorial covering basic ML topics in Python."
+  # Date of the event in YYYY-MM-DD format
+  date: 2023-03-15
+  # Start and end time for event in 24 hour HH:MM format
+  start_time: "18:00"
+  end_time: "19:00"
+  # Where the event will take place
+  location: TBA in-person + Discord
+  # The URL for the location
+  location_url: "https://github.com/UofTCoders/Events/issues/331"
+  # Packages to install, a space separating each package
+  # (e.g. "dplyr tidyr" or "Pandas>=0.21 Seaborn")
+  packages: ""
+  youtube_link: ""
+  skill_level: Intermediate
+  # Beginner Intermediate Advanced
+  # R or Python
+  program_language: Python
+  # Only one label that will be put into the GitHub Issue
+  gh_labels: code-along
+

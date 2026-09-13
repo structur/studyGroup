@@ -1,0 +1,73 @@
+<!-- Events Grid Section -->
+    <section id="events" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Events</h2>
+                    <h3 class="section-subheading text-muted">
+                      Unless otherwise stated, all our events run from <b>5:30-7 PM, and are open to everyone </b>
+                      (i.e. no registration necessary, just show up!) and are held in
+                      CDRS (Collaborative Digital Research Space, MN 3230) at the
+                      <a href="https://maps.app.goo.gl/TXY3fA2w1ub3SwYQ6">Maanjiwe
+                        Nendamowinan building</a>.
+                      The CDRS is at the north end of the third level. Once you go
+                      through the main entrance of MN, take the elevator to the third
+                      floor, turn left, and go all the way down the hall. The door
+                      should be open 10-15 minutes before the lesson.
+
+                      A list of all previous events and sessions can be found on the <a href="{{ site.github.url | replace:'http:','https:' }}/past-events/">"Past Events" page</a>.
+                    </h3>
+                </div>
+            </div>
+            <div class="col-lg-12">
+              <ul class='events'>
+              {% assign isEvent = 0 %}
+              {% for post in site.posts reversed %}
+                {% capture nowyear %}{{'now' | date: '%Y'}}{% endcapture %}
+                {% capture postyear %}{{post.date | date: '%Y'}}{% endcapture %}
+                {% capture nowday %}{{'now' | date: '%j'}}{% endcapture %}
+                {% capture postday %}{{post.date | date: '%j'}}{% endcapture %}
+                {% assign postday = postday | plus: 0 %}
+                {% assign nowday = nowday | minus: 2 %}
+                {% if postyear > nowyear or postday >= nowday and postyear >= nowyear %}
+                  {% assign isEvent = 1 %}
+                  <li>
+                      <a class='eventTitle' href="{{ post.link }}">{{ post.title }} </a>
+                      <div class='eventSub'><strong>{{ post.date | date: "%-d %B %Y"}}, {{ post.startTime | date:"%I:%M %p" }}, {{ post.location }}</strong><br>{{ post.text }}</div>
+                  </li>
+                {% endif %}
+              {% endfor %}
+              {% if isEvent == 0 %}
+                <a class='eventTitle' href="{{ site.github.issues_url }}">Nothing yet! Propose an event here.</a>
+              {% else %}
+              <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <a href="{{ site.github.owner_url }}/Events/issues" class="btn btn-xl eventSuggest">Suggest an Event</a>
+                        <a href="{{ site.github.url }}/CONTRIBUTING" class="btn btn-xl eventSuggest">How to Lead a Session</a>
+                    </div>
+              </div>
+              {% endif %}
+              </ul>
+            </div>
+            {% if site.calendar_on %}
+            <div class="col-lg-6">
+            {% else %}
+            <div class="col-lg-12">
+            {% endif %}
+              <h3 class="section-heading eventInstructions">Want to be notified of our upcoming events?</h3>
+              <h3 class="section-subheading text-muted eventSubinstructions">Head over to <a href="{{ site.github.owner_url }}/Events">GitHub</a> and watch our repository, like this:</h3>
+              <figure class="text-center">
+                <img src="img/watch.png" alt="A screenshot of the Watch settings in the top-right of the GitHub Events repo.">
+                <figcaption>Look in the top right-hand corner of <a href="{{ site.github.owner_url }}/Events">our repo</a>, click 'Watch' and pick 'All Activity'<br>You can undo this at any time in the same place.</figcaption>
+              </figure>
+            </div>
+            {% if site.calendar_on %}
+            <div class="col-lg-6">
+              <h3 class="section-heading eventInstructions">Subscribe to our events calendar!</h3>
+              <h3 class="section-subheading text-muted eventSubinstructions">We also invite you to follow <a href="{{ site.calendar_embed_url }}" target="_blank">our calendar</a>, where events will be posted. </h3>
+              <h3 class="section-subheading text-muted eventSubinstructions">If you use Google calendar, you can add our calendar by pressing the "Google Calendar" button at the bottom-right of <a href="{{ site.calendar_embed_url }}" target="_blank">this page</a>.</h3>
+              <h3 class="section-subheading text-muted eventSubinstructions">If you use another calendar app, you can copy and paste <a href="{{ site.calendar_ical_url }}">this address</a> into any calendar product that supports the iCal format.</h3>
+            </div>
+            {% endif %}
+        </div>
+    </section>

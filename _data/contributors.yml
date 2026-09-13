@@ -1,0 +1,136 @@
+---
+- name: Madeleine Bonsma
+  degree: Physics
+  github: mbonsma
+
+- name: Lina Tran
+  degree: PhD, Physiology
+  github: linamnt
+  interests:
+    - Python
+    - R
+
+- name: Ahmed Hasan
+  degree: PhD, Biology
+  github: aays
+  interests:
+    - R
+    - Python
+    - LaTeX
+
+- name: Sara Mahallati
+  degree: PhD, Biomedical Engineering
+  github: SaraMati
+  interests:
+    - MATLAB
+    - LaTeX
+    - Python
+
+- name: James Santangelo
+  degree: PhD, Biology
+  github: James-S-Santangelo
+  interests:
+    - R
+
+- name: Lindsay Coome
+  degree: Psychology
+  github: lcoome
+
+- name: Nil Sahin
+  degree: Molecular Genetics
+  github: nsahin
+
+- name: Frances Wong
+  degree: Faculty, Biology
+  github: FrancesWong
+  interests:
+    - R
+    - Git
+    - Markdown
+
+- name: Haidy Giratallah
+  degree: PhD, Pharmacology
+  github: HaidyGiratallah
+  interests:
+    - Python
+
+- name: Amin Banihashemi
+  degree: PhD, IMS
+  github: ab2347
+  interests:
+    - Python
+    - R
+
+- name: Tara Henechowicz
+  degree: PhD, Neuroscience
+  github: tarahenechowicz
+  interests:
+    - R
+    - Python
+
+- name: Kathy Chung
+  degree: Digital Humanities
+  github: chungkky
+
+- name: Zoe Francis
+  github: zoelynnfrancis
+
+- name: Derek Howard
+  github: derekhoward
+  interests:
+    - Python
+
+- name: Serena Jeblee
+  degree: Computer Science
+  github: sjeblee
+
+- name: Luke W Johnston
+  degree: PhD, Nutritional Sciences
+  github: lwjohnst86
+  interests:
+    - R
+
+- name: John Ladan
+  degree: MMath, PhD Physics
+  github: jladan
+  interests:
+    - Python
+    - Julia
+    - Javascript
+
+- name: Abigail Cabunoc Mayes
+  degree: Mozilla Science Lab
+  github: acabunoc
+
+- name: Sarah Meister
+  github: thesarahmeister
+
+- name: Ian Dennis Miller
+  degree: PhD, Psychology
+  github: iandennismiller
+  interests:
+    - Python
+    - R
+    - Social Network Analysis
+    - LaTeX
+    - Flask
+
+- name: Dano Morrison
+  github: jdpigeon
+
+- name: Joel Östblom
+  degree: PhD, Biomedical Engineering
+  github: joelostblom
+  interests:
+    - Python
+    - Linux
+
+- name: Raul Samayoa
+  github: ralle123
+
+- name: Brian Sutherland
+  github: bksutherland
+
+- name: Dawn Walker
+  degree: MI, iSchool
+  github: dcwalk

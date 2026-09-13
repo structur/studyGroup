@@ -1,0 +1,195 @@
+---
+layout: page
+title: 'Introduction to Databases and SQLite'
+author: 'Vicki M. Zhang'
+visible: true
+tags:
+  - misc
+  - beginner
+---
+
+### Set-Up ###
+```{r}
+# install.packages("RSQLite")
+
+library(RSQLite)
+```
+
+SQL == Structured Query Language
+SQL is the most used language worldwide for relational databases
+
+
+data tables we are using are: mtcars; iris
+```{r}
+mtcars$car_names <- rownames(mtcars) # string operator to adds a new column
+iris
+```
+
+# Create a database 
+```{r}
+db <- dbConnect(RSQLite::SQLite(), "")
+
+summary(db) # base R - what is "db"?
+
+# add data tables in
+dbWriteTable(db, "mtcars", mtcars) # database connection, name of the table
+# and the actual dataframe mtcars from R
+dbWriteTable(db, "iris", iris)
+
+dbListTables(db) # two tables in my database
+```
+
+
+# Write SQL Queries
+```{r}
+# star * wildcard == select all
+dbGetQuery(db, "SELECT * FROM mtcars")
+
+# select certain columns
+dbGetQuery(db, "SELECT car_names, mpg, qsec FROM mtcars")
+
+
+# filter certain rows
+# mpg is between 10-15
+dbGetQuery(db, "SELECT car_names, mpg, qsec FROM mtcars
+           WHERE mpg BETWEEN 10 AND 15")
+
+dbGetQuery(db, "SELECT * from mtcars WHERE qsec > 15")
+```
+
+# Create a new data table
+
+```{r}
+# make a new table in R (not SQL sorry)
+car <- c("Camaro", "Mustang", "Explorer", "California") # column 1
+make <- c("Chevrolet", "Ferrari", "Ford", "Dodges") # column 2
+df1 <- tibble::tibble(car, make)
+
+# write a table by appending the data tables inside our db
+dbWriteTable(db, "car_makes", df1)
+
+dbListTables(db)
+```
+
+
+
+
+# Make more queries!
+
+```{r}
+dbGetQuery(db, "SELECT * FROM car_makes")
+
+dbGetQuery(db, "SELECT * FROM mtcars LIMIT 5")
+# this gives top rows to a limit
+# there is no way to get bottom
+# but we can use GROUP BY and ORDER BY 
+
+# Now, let's get into some logic
+# mtcars: get car names and horsepower
+# but car names start with M and 6 or 8 cylinders
+dbGetQuery(db, "SELECT car_names, hp, cyl FROM mtcars
+           WHERE car_names LIKE 'M%'
+           AND cyl IN (6, 8)")
+
+# mtcars: select all the columns but not MPG between 10 and 15
+dbGetQuery(db, "SELECT * FROM mtcars WHERE mpg NOT BETWEEN 10 AND 15")
+
+# what if you want car names starting with M or disp bigger than 170?
+# less strict: car names that don't start with M as long as disp is
+# still bigger than 170, or vice versa
+dbGetQuery(db, "SELECT car_names, disp FROM mtcars WHERE
+           disp > 170
+           OR car_names LIKE 'M%' ")
+
+# make sure to group correctly! use brackets to group conditions
+# select all the columns and where mgp is not between 10 and 15
+# and (car name start with M or disp is bigger than 170)
+dbGetQuery(db, "SELECT * FROM mtcars
+           WHERE mpg NOT BETWEEN 10 AND 15
+           AND (car_names LIKE 'M%' OR disp > 170)
+           ")
+
+# select car_names, hp, cyl where car names do not start with T
+# and mpg is not between 11 and 16
+dbGetQuery(db, "SELECT car_names, hp, cyl FROM mtcars WHERE
+           car_names NOT LIKE 'T%' AND
+           mpg NOT BETWEEN 11 AND 16")
+```
+
+
+
+
+# Appending our data table
+
+```{r}
+car <- c("Corolla", "Lancer", "Sportage", "XE")
+make <- c("Toyota Corolla", "Mitsubishi", "Kia", "Jaguar")
+df2 <- tibble::tibble(car, make)
+
+# add
+dbWriteTable(db, "car_makes", df2, append = TRUE)
+dbGetQuery(db, "SELECT * FROM car_makes")
+
+# or overwrite
+dbWriteTable(db, "car_makes", df2, overwrite = TRUE)
+dbGetQuery(db, "SELECT * FROM car_makes")
+```
+
+# Calculations
+
+```{r}
+# sort in asc or desc order
+dbGetQuery(db, "SELECT cyl, hp FROM mtcars
+           ORDER BY hp")
+
+dbGetQuery(db, "SELECT cyl, hp FROM mtcars
+           ORDER BY cyl DESC")
+
+dbGetQuery(db, "SELECT cyl, hp, mpg FROM mtcars
+           ORDER BY mpg, hp")
+
+# get the average 
+dbGetQuery(db, "SELECT cyl, AVG(hp) AS 'mean_horse' FROM mtcars
+          GROUP BY cyl
+           ORDER BY mean_horse")
+
+# select cyl, hp, mpg
+# average hp and average mpg
+# group by cylinder
+# order descending hp
+avg_hpcyl <- dbGetQuery(db, "SELECT cyl, AVG(hp) AS 'mean_horse', AVG(mpg)
+AS 'mean_gas'
+FROM mtcars
+GROUP BY cyl
+ORDER BY mean_horse DESC
+           ")
+
+# saved as a dataframe now 
+avg_hpcyl
+class(avg_hpcyl)
+```
+
+
+# Joining data tables 
+```{r}
+dbGetQuery(db, "SELECT * FROM mtcars WHERE car_names = 'Toyota Corolla' ")
+dbGetQuery(db, "SELECT * FROM car_makes")
+
+dbGetQuery(db, "
+           SELECT * FROM mtcars AS t1
+           INNER JOIN car_makes AS t2
+           ON car_names = make
+           ")
+
+### select certain columns in join
+dbGetQuery(db, "
+           SELECT t1.hp, t1.cyl, t1.car_names, t2.car
+           FROM mtcars t1
+           JOIN car_makes t2
+           ON t1.car_names = make")
+```
+
+# Close connections
+```{r}
+dbDisconnect(db)
+```
